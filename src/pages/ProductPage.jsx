@@ -1,31 +1,63 @@
-import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import ProductItem from '../components/ProductItem';
 
-const product = () => {
-    const navigate = useNavigate();
+const ProductPage = () => {
+    const { data, error, isLoading } = useQuery();
 
-    const clickHandler = (e) => {
-        navigate(`/product/${ e.target.dataset.itemId }`);
-    }
+    const prodData = [
+        {
+            id: 0,
+            productName: '상품 1',
+            productPrice: 30000,
+            productPicture: [
+                'https://picsum.photos/300/300?random=1'
+            ]
+        },
+        {
+            id: 1,
+            productName: "상품 2",
+            productPrice: 30000,
+            productPicture: [
+                'https://picsum.photos/300/300?random=2'
+            ]
+        },
+        {
+            id: 2,
+            productName: "상품 3",
+            productPrice: 30000,
+            productPicture: [
+                'https://picsum.photos/300/300?random=3'
+            ]
+        },
+        {
+            id: 3,
+            productName: "상품 4",
+            productPrice: 30000,
+            productPicture: [
+                'https://picsum.photos/300/300?random=4'
+            ]
+        },
+        {
+            id: 4,
+            productName: "상품 5",
+            productPrice: 30000,
+            productPicture: [
+                'https://picsum.photos/300/300?random=5'
+            ]
+        },
+    ]
 
     return (
         <section id="secProducts">
-            <h1>상품 목록</h1>
+            <h1 className="section-title">상품 목록</h1>
 
             <div className="product-grid">
-                <article className="product-item-card" onClick={ clickHandler } data-item-id="p001">
-                    상품 1
-                </article>
-
-                <article className="product-item-card" onClick={ clickHandler } data-item-id="p002">
-                    상품 2
-                </article>
-
-                <article className="product-item-card" onClick={ clickHandler } data-item-id="p003">
-                    상품 3
-                </article>
+                { prodData.map(prodItem => {
+                    return <ProductItem key={ prodItem.id } productItem={ prodItem } />
+                }) }
             </div>
         </section>
     );
 };
 
-export default product;
+export default ProductPage;

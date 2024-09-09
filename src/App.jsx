@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import ProductPage from './pages/ProductPage';
 import ProductInfo from './pages/ProductInfo'
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,14 @@ const router = createBrowserRouter([
     }
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
-    return <RouterProvider router={ router } />
+    return (
+        <QueryClientProvider client={ queryClient }>
+            <RouterProvider router={ router } />
+        </QueryClientProvider>
+    )
 }
 
 export default App;
