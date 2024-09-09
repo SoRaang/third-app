@@ -1,0 +1,75 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 20px;
+    line-height: 1;
+}
+
+body {
+    font-size: .7rem;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: rgb(188 188 188);
+    }
+}
+
+#navPrimary {
+    position: sticky;
+    inset: 0;
+    margin-block-end: auto;
+    background-color: rgb(255 255 255 / .75);
+    backdrop-filter: blur(4px);
+}
+
+.inner-wrap {
+    margin-inline: auto;
+    width: min(100% - 16px, 1200px);
+}
+
+.navigation-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.navigation-item {
+    padding: 24px 32px;
+    font-size: .6rem;
+
+    &:hover {
+        background-color: rgb(255 255 255);
+    }
+}
+
+#sectionContainer {
+    margin-block: 32px;
+}
+
+/* 상품 목록 */
+
+#secProducts {
+
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
